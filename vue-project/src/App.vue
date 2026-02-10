@@ -4,11 +4,16 @@
     <builder__form>
       <form></form>
     </builder__form>
+
+    <div class = "pizza-builder">
+      <div class ="pizza"></div>
+      <div class ="selectedCrust"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from "vue"
 
 const pizzaOptions = {
   sizes: [
