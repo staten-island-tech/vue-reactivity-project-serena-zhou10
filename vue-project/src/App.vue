@@ -2,16 +2,18 @@
   <div class="coffee">
     <h1 class="coffee__title">Build Your Own Coffee</h1>
 
-    <CoffeeBuilder :drinks="drinks" @add-to-order="addToOrder" />
+    <div class="coffee__layout">
+      <CoffeeBuilder :drinks="drinks" @add-to-order="addToOrder" />
 
-    <OrderList :order="order" :total="total" @remove-item="removeItem" @clear-order="clearOrder" />
+      <OrderList :order="order" :total="total" @remove-item="removeItem" @clear-order="clearOrder" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
-import CoffeeBuilder from './component/CoffeeBuilder.vue'
-import OrderList from './component/OrderList.vue'
+import CoffeeBuilder from './components/CoffeeBuilder.vue'
+import OrderList from './components/OrderList.vue'
 
 const drinks = [
   { id: 'espresso', name: 'espresso', price: 3, category: 'base', class: 'drink-espresso' },
@@ -57,150 +59,4 @@ const total = computed(() => {
 })
 </script>
 
-<style scoped>
-.drink {
-  position: relative;
-  width: 180px;
-  height: 320px;
-}
-
-.cup {
-  position: absolute;
-  inset: 0;
-  border: 4px solid #8b6b4f;
-  border-radius: 0 0 40px 40px;
-  background: rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-
-.drink-layer {
-  position: absolute;
-  inset: 0;
-  border-radius: 0 0 40px 40px;
-  pointer-events: none;
-}
-
-.drink-espresso {
-  background: linear-gradient(to top, #3b1f0f 0%, #5a2e16 100%);
-}
-
-.drink-mocha {
-  background: linear-gradient(to top, #4b2c20 0%, #7a4a32 100%);
-}
-
-.drink-coldbrew {
-  background: linear-gradient(to top, #2b160b 0%, #3e1f10 100%);
-}
-
-.drink-americano {
-  background: linear-gradient(to top, #5c3418 0%, #7b4a25 100%);
-}
-
-.drink-latte {
-  background: linear-gradient(to top, #c9a27c 0%, #e5c4a3 100%);
-}
-
-.drink-cappuccino {
-  background: linear-gradient(to top,
-      #7b4a25 0%,
-      #7b4a25 60%,
-      #f2e5d8 60%);
-}
-
-.drink-flatwhite {
-  background: linear-gradient(to top,
-      #9e6b47 0%,
-      #9e6b47 50%,
-      #f5eee6 50%);
-}
-
-.drink-macchiato {
-  background: linear-gradient(to top,
-      #4a2a17 0%,
-      #4a2a17 70%,
-      #f8f1e8 70%);
-}
-
-.drink-wholemilk {
-  background: rgba(255,255,255,0.35);
-}
-
-.drink-reducedfatmilk {
-  background: rgba(255,255,255,0.25);
-}
-
-.drink-skimmilk {
-  background: rgba(255,255,255,0.18);
-}
-
-.drink-oatmilk {
-  background: rgba(245,222,179,0.35);
-}
-
-.drink-soymilk {
-  background: rgba(250,240,220,0.35);
-}
-
-.drink-almondmilk {
-  background: rgba(255,228,196,0.4);
-}
-
-.drink-coconutmilk {
-  background: rgba(255,255,255,0.45);
-}
-
-.drink-coldfoam {
-  background: linear-gradient(
-    to top,
-    transparent 70%,
-    #f6f1ea 70%
-  );
-}
-
-.drink-whippedcream {
-  background: radial-gradient(
-    circle at 50% 5%,
-    #ffffff 40px,
-    transparent 41px
-  );
-}
-
-.drink-caramel {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(181,101,29,0.8) 20px,
-      rgba(181,101,29,0.8) 30px
-    );
-}
-
-.drink-chocolate {
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 20px,
-      rgba(60,30,15,0.8) 20px,
-      rgba(60,30,15,0.8) 30px
-    );
-}
-
-.drink-icecream {
-  background: radial-gradient(
-    circle at 50% 15%,
-    #fdf5e6 60px,
-    transparent 61px
-  );
-}
-
-.drink-caramel,
-.drink-chocolate,
-.drink-coldfoam {
-  background-position: top;
-  background-size: 100% 40%;
-  background-repeat: no-repeat;
-}
-
-</style>
+<style scoped></style>
