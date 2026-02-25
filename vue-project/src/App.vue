@@ -16,22 +16,27 @@ import CoffeeBuilder from './components/CoffeeBuilder.vue'
 import OrderList from './components/OrderList.vue'
 
 const drinks = [
+  { id: 'noice', name: 'no ice', price: 0, category: 'ice level', class: 'ice-noice', },
+  { id: 'littleice', name: 'little ice', price: 0, category: 'ice level', class: 'ice-littleice', },
+  { id: 'regularice', name: 'regular ice', price: 0, category: 'ice level', class: 'ice-regularice', },
+  { id: 'extraice', name: 'extra ice', price: 0, category: 'ice level', class: 'ice-extraice', },
+
   { id: 'espresso', name: 'espresso', price: 3, category: 'base', class: 'drink-espresso' },
-  { id: 'mocha', name: 'mocha', price: 4, category: 'base', class: 'drink-mocha' },
-  { id: 'coldbrew', name: 'cold brew', price: 5, category: 'base', class: 'drink-coldbrew' },
-  { id: 'americano', name: 'americano', price: 4, category: 'base', class: 'drink-americano' },
-  { id: 'latte', name: 'latte', price: 6, category: 'base', class: 'drink-latte' },
-  { id: 'cappuccino', name: 'cappuccino', price: 4, category: 'base', class: 'drink-cappuccino' },
   { id: 'flatwhite', name: 'flat white', price: 3, category: 'base', class: 'drink-flatwhite' },
+  { id: 'mocha', name: 'mocha', price: 4, category: 'base', class: 'drink-mocha' },
+  { id: 'americano', name: 'americano', price: 4, category: 'base', class: 'drink-americano' },
+  { id: 'cappuccino', name: 'cappuccino', price: 4, category: 'base', class: 'drink-cappuccino' },
+  { id: 'coldbrew', name: 'cold brew', price: 5, category: 'base', class: 'drink-coldbrew' },
+  { id: 'latte', name: 'latte', price: 6, category: 'base', class: 'drink-latte' },
   { id: 'macchiato', name: 'macchiato', price: 6, category: 'base', class: 'drink-macchiato' },
 
   { id: 'wholemilk', name: 'whole milk', price: 0, category: 'milk', class: 'drink-wholemilk' },
-  { id: 'reducedfatmilk', name: 'reduced fat milk', price: 0.5, category: 'milk', class: 'drink-reducedfatmilk', },
   { id: 'skimmilk', name: 'skim milk', price: 0, category: 'milk', class: 'drink-skimmilk' },
+  { id: 'reducedfatmilk', name: 'reduced fat milk', price: 0.5, category: 'milk', class: 'drink-reducedfatmilk', },
+  { id: 'coconutmilk', name: 'coconut milk', price: 0.5, category: 'milk', class: 'drink-coconutmilk', },
   { id: 'oatmilk', name: 'oat milk', price: 1, category: 'milk', class: 'drink-oatmilk' },
   { id: 'soymilk', name: 'soy milk', price: 1, category: 'milk', class: 'drink-soymilk' },
   { id: 'almondmilk', name: 'almond milk', price: 1, category: 'milk', class: 'drink-almondmilk' },
-  { id: 'coconutmilk', name: 'coconut milk', price: 0.5, category: 'milk', class: 'drink-coconutmilk', },
 
   { id: 'coldfoam', name: 'cold foam', price: 1, category: 'topping', class: 'drink-coldfoam' },
   { id: 'whippedcream', name: 'whipped cream', price: 1, category: 'topping', class: 'drink-whippedcream', },
