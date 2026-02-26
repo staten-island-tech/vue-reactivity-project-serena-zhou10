@@ -12,14 +12,10 @@
           <div v-for="drink in filteredDrinks(category)" :key="drink.id" class="builder__card" :class="drink.class">
             <h4 class="builder__name">{{ drink.name }}</h4>
             <p class="builder__price">${{ drink.price }}</p>
-
-            <button class="builder__button" @click="$emit('add-to-order', drink)">
-              Add
-            </button>
+            <button class="builder__button" @click="$emit('add-to-order', drink)">Add</button>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>

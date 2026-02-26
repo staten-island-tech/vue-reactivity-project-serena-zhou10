@@ -4,26 +4,18 @@
       <h2 class="order__title">Your Order</h2>
       <ul v-if="order.length" class="order__list">
         <li v-for="(item, index) in order" :key="index" class="order__item">
-          <span>
-            {{ item.name }} - ${{ item.price }}
-          </span>
+          <span> {{ item.name }} - ${{ item.price }} </span>
 
-          <button class="order__remove" @click="$emit('remove-item', index)">
-            Remove
-          </button>
+          <button class="order__remove" @click="$emit('remove-item', index)">Remove</button>
         </li>
       </ul>
 
-      <p v-else class="order__empty">
-        No items added yet.
-      </p>
+      <p v-else class="order__empty">No items added yet.</p>
 
       <div v-if="order.length" class="order__summary">
         <h3>Total: ${{ total }}</h3>
 
-        <button class="order__clear" @click="$emit('clear-order')">
-          Clear Order
-        </button>
+        <button class="order__clear" @click="$emit('clear-order')">Clear Order</button>
       </div>
     </div>
   </div>
@@ -33,12 +25,12 @@
 defineProps({
   order: {
     type: Array,
-    required: true
+    required: true,
   },
   total: {
     type: Number,
-    required: true
-  }
+    required: true,
+  },
 })
 </script>
 

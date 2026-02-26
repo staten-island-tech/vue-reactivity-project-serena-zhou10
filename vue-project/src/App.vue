@@ -38,11 +38,11 @@ const drinks = [
   { id: 'soymilk', name: 'soy milk', price: 1, category: 'milk', class: 'drink-soymilk' },
   { id: 'almondmilk', name: 'almond milk', price: 1, category: 'milk', class: 'drink-almondmilk' },
 
+  { id: 'caramel', name: 'caramel drizzle', price: 0.5, category: 'topping', class: 'drink-caramel' },
   { id: 'coldfoam', name: 'cold foam', price: 1, category: 'topping', class: 'drink-coldfoam' },
   { id: 'whippedcream', name: 'whipped cream', price: 1, category: 'topping', class: 'drink-whippedcream', },
-  { id: 'caramel', name: 'caramel drizzle', price: 0.5, category: 'topping', class: 'drink-caramel' },
-  { id: 'icecream', name: 'ice cream', price: 2, category: 'topping', class: 'drink-icecream' },
   { id: 'chocolate', name: 'chocolate drizzle', price: 1, category: 'topping', class: 'drink-chocolate', },
+  { id: 'icecream', name: 'ice cream', price: 2, category: 'topping', class: 'drink-icecream' },
 ]
 
 const order = ref([])
@@ -64,4 +64,8 @@ const total = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.coffee__title {
+padding-left: 1rem;
+}
+</style>
