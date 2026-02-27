@@ -31,12 +31,7 @@ const props = defineProps({
 })
 
 const categories = computed(() => {
-  const allCategories = props.drinks.map((drink) => {
-    return drink.category
-  })
-
-  const uniqueCategories = new Set(allCategories)
-  return Array.from(uniqueCategories)
+  return [...new Set(props.drinks.map(d => d.category))]
 })
 
 function filteredDrinks(category) {
