@@ -12,7 +12,7 @@
           <div v-for="drink in filteredDrinks(category)" :key="drink.id" class="builder__card" :class="drink.class">
             <h4 class="builder__name">{{ drink.name }}</h4>
             <p class="builder__price">${{ drink.price }}</p>
-            <button class="builder__button" @click="$emit('add-to-order', drink)">Add</button>
+            <button class="builder__button" @click="emit('add-to-order', drink)">Add</button>
           </div>
         </div>
       </div>
@@ -23,16 +23,18 @@
 <script setup>
 import { computed } from 'vue'
 
-function props(defineProps) {
+const props = defineProps({
   drinks: {
     type: Array,
-    required; true
-  }
-}
+    required: true,
+  },
+})
 
-function categories(computed){
+const emit = defineEmits(['add-to-order'])
+
+const categories = computed(function () {
   return [...new Set(props.drinks.map(d => d.category))]
-}
+})
 
 function filteredDrinks(category) {
   return props.drinks.filter((drink) => {

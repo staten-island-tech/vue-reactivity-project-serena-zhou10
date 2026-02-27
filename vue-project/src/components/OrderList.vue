@@ -36,7 +36,7 @@ defineProps({
   },
 })
 
-const checkout = () => {
+function checkout() {
   alert("Your order is ready! Enjoy! Thank you for visiting")
   emit('clear-order')
 }

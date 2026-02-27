@@ -5,12 +5,7 @@
     <div class="coffee__layout">
       <CoffeeBuilder :drinks="drinks" @add-to-order="addToOrder" />
 
-      <OrderList
-        :order="order"
-        :total="total"
-        @remove-item="removeItem"
-        @clear-order="clearOrder"
-      />
+      <OrderList :order="order" :total="total" @remove-item="removeItem" @clear-order="clearOrder" />
     </div>
   </div>
 </template>
@@ -191,9 +186,10 @@ function clearOrder() {
   order.value = []
 }
 
-function total(computed) {
+const total = computed(function () {
   return order.value.reduce((sum, item) => sum + item.price, 0)
-}
+})
+
 </script>
 
 <style scoped>
