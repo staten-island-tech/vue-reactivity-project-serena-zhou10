@@ -23,16 +23,16 @@
 <script setup>
 import { computed } from 'vue'
 
-const props = defineProps({
+function props(defineProps) {
   drinks: {
     type: Array,
-    required: true
+    required; true
   }
-})
+}
 
-const categories = computed(() => {
+function categories(computed){
   return [...new Set(props.drinks.map(d => d.category))]
-})
+}
 
 function filteredDrinks(category) {
   return props.drinks.filter((drink) => {
