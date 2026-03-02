@@ -5,7 +5,12 @@
     <div class="coffee__layout">
       <CoffeeBuilder :drinks="drinks" @add-to-order="addToOrder" />
 
-      <OrderList :order="order" :total="total" @remove-item="removeItem" @clear-order="clearOrder" />
+      <OrderList
+        :order="order"
+        :total="total"
+        @remove-item="removeItem"
+        @clear-order="clearOrder"
+      />
     </div>
   </div>
 </template>
@@ -18,50 +23,14 @@ import OrderList from './components/OrderList.vue'
 const drinks = [
   { id: 'noice', name: 'no ice', price: 0, category: 'ice level', class: 'ice-noice' },
   { id: 'littleice', name: 'little ice', price: 0, category: 'ice level', class: 'ice-littleice' },
-  {
-    id: 'regularice',
-    name: 'regular ice',
-    price: 0,
-    category: 'ice level',
-    class: 'ice-regularice',
-  },
+  { id: 'regularice', name: 'regular ice', price: 0, category: 'ice level', class: 'ice-regularice'},
   { id: 'extraice', name: 'extra ice', price: 0, category: 'ice level', class: 'ice-extraice' },
 
-  {
-    id: 'noaddedsugar',
-    name: '0% sugar',
-    price: 0,
-    category: 'sugar level',
-    class: 'sugar-noaddedsugar',
-  },
-  {
-    id: 'littlesugar',
-    name: '25% sugar',
-    price: 0,
-    category: 'sugar level',
-    class: 'sugar-littlesugar',
-  },
-  {
-    id: 'moderatesugar',
-    name: '50% sugar',
-    price: 0,
-    category: 'sugar level',
-    class: 'sugar-moderatesugar',
-  },
-  {
-    id: 'lesssugar',
-    name: '50% sugar',
-    price: 0,
-    category: 'sugar level',
-    class: 'sugar-lesssugar',
-  },
-  {
-    id: 'regularsugar',
-    name: '100% sugar',
-    price: 0,
-    category: 'sugar level',
-    class: 'sugar-regularsugar',
-  },
+  { id: 'noaddedsugar', name: '0% sugar', price: 0, category: 'sugar level', class: 'sugar-noaddedsugar'},
+  { id: 'littlesugar', name: '25% sugar', price: 0, category: 'sugar level', class: 'sugar-littlesugar'},
+  { id: 'moderatesugar', name: '50% sugar', price: 0, category: 'sugar level', class: 'sugar-moderatesugar'},
+  { id: 'lesssugar', name: '50% sugar', price: 0, category: 'sugar level', class: 'sugar-lesssugar'},
+  { id: 'regularsugar', name: '100% sugar', price: 0, category: 'sugar level', class: 'sugar-regularsugar'},
 
   { id: 'espresso', name: 'espresso', price: 3, category: 'base', class: 'drink-espresso' },
   { id: 'flatwhite', name: 'flat white', price: 3, category: 'base', class: 'drink-flatwhite' },
@@ -79,34 +48,10 @@ const drinks = [
 
   { id: 'wholemilk', name: 'whole milk', price: 0, category: 'milk', class: 'drink-wholemilk' },
   { id: 'skimmilk', name: 'skim milk', price: 0, category: 'milk', class: 'drink-skimmilk' },
-  {
-    id: 'reducedfatmilk',
-    name: 'reduced fat milk',
-    price: 0.5,
-    category: 'milk',
-    class: 'drink-reducedfatmilk',
-  },
-  {
-    id: 'lactosefree',
-    name: 'lactose free milk',
-    price: 0.5,
-    category: 'milk',
-    class: 'drink-lactosefree',
-  },
-  {
-    id: 'steamedmilk',
-    name: 'steamed milk',
-    price: 0.5,
-    category: 'milk',
-    class: 'drink-steamedmilk',
-  },
-  {
-    id: 'coconutmilk',
-    name: 'coconut milk',
-    price: 0.5,
-    category: 'milk',
-    class: 'drink-coconutmilk',
-  },
+  { id: 'reducedfatmilk', name: 'reduced fat milk', price: 0.5, category: 'milk', class: 'drink-reducedfatmilk'},
+  { id: 'lactosefree', name: 'lactose free milk', price: 0.5, category: 'milk', class: 'drink-lactosefree'},
+  { id: 'steamedmilk', name: 'steamed milk', price: 0.5, category: 'milk', class: 'drink-steamedmilk'},
+  { id: 'coconutmilk', name: 'coconut milk', price: 0.5, category: 'milk', class: 'drink-coconutmilk'},
   { id: 'oatmilk', name: 'oat milk', price: 1, category: 'milk', class: 'drink-oatmilk' },
   { id: 'soymilk', name: 'soy milk', price: 1, category: 'milk', class: 'drink-soymilk' },
   { id: 'almondmilk', name: 'almond milk', price: 1, category: 'milk', class: 'drink-almondmilk' },
@@ -116,55 +61,13 @@ const drinks = [
   { id: 'extrafoam', name: 'extra foam', price: 0.5, category: 'foam', class: 'foam-extrafoam' },
   { id: 'coldfoam', name: 'cold foam', price: 1, category: 'topping', class: 'drink-coldfoam' },
 
-  {
-    id: 'caramel',
-    name: 'caramel drizzle',
-    price: 0.5,
-    category: 'topping',
-    class: 'drink-caramel',
-  },
-  {
-    id: 'whippedcream',
-    name: 'whipped cream',
-    price: 1,
-    category: 'topping',
-    class: 'drink-whippedcream',
-  },
-  {
-    id: 'chocolate',
-    name: 'chocolate drizzle',
-    price: 1,
-    category: 'topping',
-    class: 'drink-chocolate',
-  },
-  {
-    id: 'extrashot',
-    name: 'extra espresso shot',
-    price: 1.5,
-    category: 'topping',
-    class: 'drink-extrashot',
-  },
-  {
-    id: 'vanillasyrup',
-    name: 'vanilla syrup',
-    price: 0.5,
-    category: 'topping',
-    class: 'drink-vanillasyrup',
-  },
-  {
-    id: 'caramelsyrup',
-    name: 'caramel syrup',
-    price: 0.5,
-    category: 'topping',
-    class: 'drink-caramelsyrup',
-  },
-  {
-    id: 'hazelnutsyrup',
-    name: 'hazelnut syrup',
-    price: 0.5,
-    category: 'topping',
-    class: 'drink-hazelnutsyrup',
-  },
+  { id: 'caramel', name: 'caramel drizzle', price: 0.5, category: 'topping', class: 'drink-caramel'},
+  { id: 'whippedcream', name: 'whipped cream', price: 1, category: 'topping', class: 'drink-whippedcream'},
+  { id: 'chocolate', name: 'chocolate drizzle', price: 1, category: 'topping', class: 'drink-chocolate'},
+  { id: 'extrashot', name: 'extra espresso shot', price: 1.5, category: 'topping', class: 'drink-extrashot'},
+  { id: 'vanillasyrup', name: 'vanilla syrup', price: 0.5, category: 'topping', class: 'drink-vanillasyrup'},
+  { id: 'caramelsyrup', name: 'caramel syrup', price: 0.5, category: 'topping', class: 'drink-caramelsyrup'},
+  { id: 'hazelnutsyrup', name: 'hazelnut syrup', price: 0.5, category: 'topping', class: 'drink-hazelnutsyrup'},
 ]
 
 const order = ref([])
@@ -189,7 +92,6 @@ function clearOrder() {
 const total = computed(function () {
   return order.value.reduce((sum, item) => sum + item.price, 0)
 })
-
 </script>
 
 <style scoped>
